@@ -8,4 +8,5 @@ RUN set -x \
 	&& docker-php-ext-install ldap mcrypt \
 	&& apt-get purge -y --auto-remove libldap2-dev \
 	&& a2enmod ldap \
-	&& a2enmod authnz_ldap
+	&& a2enmod authnz_ldap \
+	&& echo -e "\nTLS_REQCERT never\n" >> /etc/ldap/ldap.conf
