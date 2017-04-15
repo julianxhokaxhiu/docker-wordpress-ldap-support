@@ -10,3 +10,12 @@ RUN set -x \
 	&& a2enmod ldap \
 	&& a2enmod authnz_ldap \
 	&& echo -e "\nTLS_REQCERT never\n" >> /etc/ldap/ldap.conf
+
+# Iron the security of the Docker
+RUN { \
+    echo -e "\n"; \
+    echo "ServerSignature Off"; \
+    echo "ServerTokens Prod"; \
+    echo "TraceEnable off"; \
+    echo -e "\n"; \
+  } >> /etc/apache2/apache2.conf
