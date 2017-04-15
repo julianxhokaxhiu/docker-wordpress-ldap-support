@@ -13,9 +13,7 @@ RUN set -x \
 
 # Iron the security of the Docker
 RUN { \
-    echo -e "\n"; \
     echo "ServerSignature Off"; \
     echo "ServerTokens Prod"; \
     echo "TraceEnable off"; \
-    echo -e "\n"; \
   } >> /etc/apache2/apache2.conf
